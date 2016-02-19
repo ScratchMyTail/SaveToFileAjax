@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1 Her kommer linjene fra fila
+    table
+        th Verdi
+        each val in linjer
+            tr
+            td #{val}

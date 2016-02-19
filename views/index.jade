@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  script.
+    function lagreVerdi(){
+      var val = document.getElementById("tekstfelt").value;
+
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function(){
+        if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+          console.log("POST er vellykket.");
+        }
+      }
+
+      xmlHttp.open("POST", "/add", true);
+      xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlHttp.send("verdi="+val);
+    }
+
+  input(type="text" id="tekstfelt")
+  input(type="button" onClick="lagreVerdi()" value="Lagre tekst")
